@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TestProgram</string>
+    <string name="button_text">Нажми на меня</string>
+    <string name="title">Pokemon Game</string>
+    <string name="hint_1">Введите текст</string>
+
 </resources>
