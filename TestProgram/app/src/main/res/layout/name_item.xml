@@ -12,7 +12,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif"
         android:text="Example"
-        android:textColor="#4CAF50"
+        android:textColor="#3F4E3F"
         android:textSize="30sp" />
 
 </RelativeLayout>

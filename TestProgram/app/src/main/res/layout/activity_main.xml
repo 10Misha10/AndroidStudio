@@ -4,21 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@drawable/pokemons"
     tools:context=".MainActivity">
 
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="155dp"
-        android:layout_height="97dp"
+        android:layout_width="220dp"
+        android:layout_height= "77dp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/title"
-        android:textColor="#916060"
-        android:textSize="25sp"
+        android:background="#7F5187"
+        android:text=" Pokeons "
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,8 +30,10 @@
         android:layout_width="394dp"
         android:layout_height="452dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="#B8BD85"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"

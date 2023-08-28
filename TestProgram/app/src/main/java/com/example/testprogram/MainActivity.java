@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] arr = new String[]{"bulbasaur", "ivysaur", "venusaur", "charmander",
             "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie",
-                "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto",
+                    "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto",
             "pidgeot", "rattata", "raticate"};
     private ListView listView;
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.name_item, R.id.pokemon_name, arr);
 
 
-        mDBHelper = new DatabaseHelper(this);
+        /*mDBHelper = new DatabaseHelper(this);
 
         try {
             mDBHelper.updateDataBase();
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         cursor.close();
         String[] from = {"name"};
         int[] to = { R.id.pokemon_name};
-        SimpleAdapter adapter = new SimpleAdapter(this, clients, R.layout.name_item, from, to);
+        SimpleAdapter adapter = new SimpleAdapter(this, clients, R.layout.name_item, from, to);*/
 
 
         listView.setAdapter(arrayAdapter);
