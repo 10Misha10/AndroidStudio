@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.LinkedList;
 
 public class Activity2 extends AppCompatActivity {
     private DatabaseHelper mDBHelper;
@@ -37,28 +37,13 @@ public class Activity2 extends AppCompatActivity {
         image = findViewById(R.id.imageView);
 
         Intent intent = getIntent();
-
         String name = intent.getStringExtra("name");
+
         textView.setText(name);
+        setImage(image, name);
 
-        int imageResource = getResources().getIdentifier(name.toLowerCase(), "drawable", getPackageName());
-
-        if (imageResource != 0) {
-            image.setImageResource(imageResource);
-        }
         mDBHelper = new DatabaseHelper(this);
-
-        try {
-            mDBHelper.updateDataBase();
-        } catch (IOException mIOException) {
-            throw new Error("UnableToUpdateDatabase");
-        }
-
-        try {
-            mDb = mDBHelper.getWritableDatabase();
-        } catch (SQLException mSQLException) {
-            throw mSQLException;
-        }
+        checkDB(mDBHelper);
 
         Cursor cursor = mDb.rawQuery("SELECT * FROM pokemons", null);
         cursor.moveToFirst();
@@ -73,6 +58,27 @@ public class Activity2 extends AppCompatActivity {
         }
         cursor.close();
 
+    }
+    public void checkDB(DatabaseHelper mDBHelper){
+        try {
+            mDBHelper.updateDataBase();
+        } catch (IOException mIOException) {
+            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
+            throw new Error("UnableToUpdateDatabase");
+        }
+
+        try {
+            mDb = mDBHelper.getWritableDatabase();
+        } catch (SQLException mSQLException) {
+            Toast.makeText(this, "Data Not Loading", Toast.LENGTH_LONG).show();
+            throw mSQLException;
+        }
+    }
+    public void setImage(ImageView image, String name){
+        int imageResource = getResources().getIdentifier(name.toLowerCase(), "drawable", getPackageName());
+        if (imageResource != 0) {
+            image.setImageResource(imageResource);
+        }
     }
     public void startNewActivity(View v){
         Intent intent = new Intent(this, MainActivity.class);
